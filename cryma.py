@@ -1,6 +1,7 @@
 import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib
 import streamlit as st
 
 st.title("CryMA : Daily Prices")
@@ -26,12 +27,11 @@ SMAlow = df['Close'].rolling(window = lowma).mean()
 SMAhigh = df['Close'].rolling(window = highma).mean()
 
 
-#plt.figure(figsize=(20, 8))
+matplotlib.rc('font', size='8')
 fig, ax = plt.subplots()
 plt.plot(df['Close'][-time:])
 plt.plot(SMAlow[-time:], label='Low MA')
 plt.plot(SMAhigh[-time:], label='High MA')
 plt.legend(loc='upper left', fontsize=10)
-plt.xlabel("Days", fontsize='small')
 plt.show()
 st.pyplot(fig)
