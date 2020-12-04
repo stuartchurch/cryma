@@ -27,7 +27,7 @@ SMAlow = df['Close'].rolling(window = lowma).mean()
 SMAhigh = df['Close'].rolling(window = highma).mean()
 
 
-matplotlib.rc('font', size='8')
+matplotlib.rc('font', size='6')
 fig, ax = plt.subplots()
 plt.plot(df['Close'][-time:])
 plt.plot(SMAlow[-time:], label='Low MA')
