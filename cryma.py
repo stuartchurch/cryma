@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import matplotlib
 import streamlit as st
 
+@st.cache
+
 st.title("CryMA : Daily Prices")
 st.write("Choose moving averages to explore best buy/sell times")
 crypto = st.sidebar.selectbox('Select a Cryptocurrency',['BTC-GBP', 'ETH-GBP', 'XRP-GBP','BCH-GBP','LTC-GBP','XLM-GBP'])
