@@ -5,10 +5,14 @@ import matplotlib
 import streamlit as st
 
 @st.cache
+def load_data():
+    data = yf.download(crypto, period=period, interval='1d', progress=False)
+    return data
 
 st.title("CryMA : Daily Prices")
 st.write("Choose moving averages to explore best buy/sell times")
 crypto = st.sidebar.selectbox('Select a Cryptocurrency',['BTC-GBP', 'ETH-GBP', 'XRP-GBP','BCH-GBP','LTC-GBP','XLM-GBP'])
+
 
 lowma = st.sidebar.slider("Low Moving Average",5,50,20)
 highma = st.sidebar.slider("High Moving Average",20,200,50)
@@ -20,7 +24,9 @@ st.header(crypto)
 st.write('Low Moving Average =', lowma, ' / High Moving Average =', highma, ' / Period =', period)
 
 #Download the latest data / default interval is one day
-df = yf.download(crypto, period=period, interval='1d', progress=False)
+#df = yf.download(crypto, period=period, interval='1d', progress=False)
+df = load_data()
+
 
 st.write("Latest daily prices")
 st.dataframe(df.tail(1))
