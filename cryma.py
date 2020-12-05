@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 import streamlit as st
 
-@st.cache
+#
 def load_data():
     data = yf.download(crypto, period=period, interval='1d', progress=False)
     return data
