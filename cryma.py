@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 import streamlit as st
 
-@st.cache
+
 def load_data():
     data = yf.download(crypto, period=period, interval='1d', progress=False)
     return data
@@ -27,7 +27,6 @@ st.write('Low Moving Average =', lowma, ' / High Moving Average =', highma, ' / 
 #df = yf.download(crypto, period=period, interval='1d', progress=False)
 df = load_data()
 
-
 st.write("Latest daily prices")
 st.dataframe(df.tail(1))
 
@@ -43,3 +42,4 @@ plt.plot(SMAhigh[-time:], label='High MA')
 plt.legend(loc='upper left', fontsize='8')
 plt.show()
 st.pyplot(fig)
+
