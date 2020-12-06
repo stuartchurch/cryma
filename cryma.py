@@ -25,6 +25,9 @@ highma = st.sidebar.slider("High Moving Average",10,200,50)
 time = st.sidebar.slider("Time period (days)",0,1000,300)
 #freq = st.sidebar.radio('Frequency', ['1d','60m'])
 
+
+df = load_data()
+
 #append 'd' to time to define period for yf call
 period = '{}{}'.format(time, 'd')
 st.header(crypto)
@@ -33,7 +36,7 @@ st.write('Low Moving Average =', lowma, ' / High Moving Average =', highma, ' / 
 #Download the latest data / default interval is one day
 #df = yf.download(crypto, period=period, interval='1d', progress=False)
 
-df = load_data()
+
 
 
 
