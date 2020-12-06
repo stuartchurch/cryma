@@ -29,7 +29,7 @@ st.write('Low Moving Average =', lowma, ' / High Moving Average =', highma, ' / 
 #df = yf.download(crypto, period=period, interval='1d', progress=False)
 
 df = load_data()
-
+df.reset_index(inplace = True)
 
 
 
