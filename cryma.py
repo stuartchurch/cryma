@@ -9,6 +9,11 @@ import streamlit as st
 #    data = yf.download(crypto, period=period, interval='1d', progress=False)
 #    return data
 
+def load_data():
+    crypto = yf.Ticker(crypto)
+    data = crypto.history(period = period, interval = '1d')
+    data.reset_index(inplace = True)
+    return data
 
 st.title("CryMA : Daily Prices")
 st.write("Choose moving averages to explore best buy/sell times")
@@ -27,12 +32,11 @@ st.write('Low Moving Average =', lowma, ' / High Moving Average =', highma, ' / 
 
 #Download the latest data / default interval is one day
 #df = yf.download(crypto, period=period, interval='1d', progress=False)
-#df = load_data()
+
+df = load_data()
 
 
-crypto = yf.Ticker(crypto)
-df = crypto.history(period = period, interval = '1d')
-df.reset_index(inplace = True)
+
 
 st.write("Latest daily prices")
 st.dataframe(df.tail(1))
