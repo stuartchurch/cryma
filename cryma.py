@@ -43,11 +43,23 @@ SMAhigh = df['Close'].rolling(window = highma).mean()
 
 
 matplotlib.rc('font', size='6')
+
+#fig, ax = plt.subplots()
+#plt.plot(df['Close'][-time:])
+#plt.plot(SMAlow[-time:], label='Low MA')
+#plt.plot(SMAhigh[-time:], label='High MA')
+#plt.legend(loc='upper left', fontsize='8')
+#plt.show()
+#st.pyplot(fig)
+
 fig, ax = plt.subplots()
-plt.plot(df['Close'][-time:])
-plt.plot(SMAlow[-time:], label='Low MA')
-plt.plot(SMAhigh[-time:], label='High MA')
-plt.legend(loc='upper left', fontsize='8')
+plt.plot(df['Datetime'],df['Close'])
+plt.plot(df['Datetime'],SMALow,label='Low MA')
+plt.plot(df['Datetime'],SMAHigh,label='High MA')
+plt.legend(loc='upper left', fontsize=15)
 plt.show()
 st.pyplot(fig)
 
+#plt.figure(figsize=(20, 8))
+fig2 = plt.plot(df['Datetime'],df['Volume'])
+st.pyplot(fig2)
