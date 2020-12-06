@@ -59,8 +59,3 @@ plt.plot(df['Datetime'],SMAhigh,label='High MA')
 plt.legend(loc='upper left', fontsize=15)
 plt.show()
 st.pyplot(fig)
-
-#plt.figure(figsize=(20, 8))
-plt.plot(df['Datetime'],df['Volume'])
-plt.show()
-st.pyplot()
