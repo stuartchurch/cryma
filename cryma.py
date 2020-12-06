@@ -61,5 +61,6 @@ plt.show()
 st.pyplot(fig)
 
 #plt.figure(figsize=(20, 8))
-fig2 = plt.plot(df['Datetime'],df['Volume'])
-st.pyplot(fig2)
+plt.plot(df['Datetime'],df['Volume'])
+plt.show()
+st.pyplot()
