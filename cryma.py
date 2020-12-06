@@ -35,7 +35,7 @@ df = crypto.history(period = period, interval = '1d')
 df.reset_index(inplace = True)
 
 st.write("Latest daily prices")
-st.dataframe(df.tail(1))
+st.dataframe(df['Date','Close'].tail(1))
 
 SMAlow = df['Close'].rolling(window = lowma).mean()
 SMAhigh = df['Close'].rolling(window = highma).mean()
