@@ -18,7 +18,7 @@ crypto = st.sidebar.selectbox('Select a Cryptocurrency',['BTC-GBP', 'ETH-GBP', '
 lowma = st.sidebar.slider("Low Moving Average",1,50,20)
 highma = st.sidebar.slider("High Moving Average",10,200,50)
 time = st.sidebar.slider("Time period (days)",0,1000,300)
-freq = st.sidebar.radio('Frequency', ['1d','60m'])
+#freq = st.sidebar.radio('Frequency', ['1d','60m'])
 
 #append 'd' to time to define period for yf call
 period = '{}{}'.format(time, 'd')
@@ -31,7 +31,7 @@ st.write('Low Moving Average =', lowma, ' / High Moving Average =', highma, ' / 
 
 
 crypto = yf.Ticker(crypto)
-df = crypto.history(period = period, interval = freq)
+df = crypto.history(period = period, interval = '1d')
 df.reset_index(inplace = True)
 
 st.write("Latest daily prices")
@@ -51,9 +51,9 @@ matplotlib.rc('font', size='6')
 #st.pyplot(fig)
 
 fig, ax = plt.subplots()
-plt.plot(df['Datetime'],df['Close'])
-plt.plot(df['Datetime'],SMAlow,label='Low MA')
-plt.plot(df['Datetime'],SMAhigh,label='High MA')
+plt.plot(df['Date'],df['Close'])
+plt.plot(df['Date'],SMAlow,label='Low MA')
+plt.plot(df['Date'],SMAhigh,label='High MA')
 plt.legend(loc='upper left', fontsize=15)
 plt.show()
 st.pyplot(fig)
