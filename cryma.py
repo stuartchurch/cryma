@@ -27,7 +27,7 @@ st.write('Low Moving Average =', lowma, ' / High Moving Average =', highma, ' / 
 
 #Download the latest data / default interval is one day
 #df = yf.download(crypto, period=period, interval='1d', progress=False)
-df = load_data()
+#df = load_data()
 
 
 crypto = yf.Ticker(crypto)
