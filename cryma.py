@@ -55,3 +55,4 @@ plt.plot(df['Date'],SMAhigh,label='High MA')
 plt.legend(loc='upper left', fontsize=15)
 plt.show()
 st.pyplot(fig)
+
