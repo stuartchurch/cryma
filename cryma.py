@@ -10,7 +10,7 @@ def load_data():
 
 st.title("CryMA : Daily Prices")
 st.write("Choose moving averages to explore best buy/sell times")
-crypto = st.sidebar.selectbox('Select a Cryptocurrency',['BTC-GBP', 'ETH-GBP', 'XRP-GBP','BCH-GBP','LTC-GBP','XLM-GBP'])
+crypto = st.sidebar.selectbox('Select a Cryptocurrency',['BTC-GBP', 'ETH-GBP', 'GRT-GBP','BCH-GBP','LTC-GBP','XLM-GBP'])
 
 lowma = st.sidebar.slider("Low Moving Average",1,50,20)
 highma = st.sidebar.slider("High Moving Average",10,200,50)
